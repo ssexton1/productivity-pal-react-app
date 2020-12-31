@@ -1,15 +1,44 @@
-import React from "react";
+import { useState } from 'react';
 
-function Tasks() {
-  return (
-    <div className="flex-container">
-      <p className="task">Task 1</p>
-      <p className="task">Task 2</p>
-      <p className="task">Task 3</p>
-      <p className="task">Task 4</p>
-      <p className="task">Task 5</p>
-    </div>
-  );
+export function Task(props) {
+    const theTask = props.task
+
+    const [clickCount, setClickCount] = useState(0);
+
+    let className = '';
+    if(theTask.complete) {
+        className = 'font-strike';
+    }
+
+    const handleClick = (event) => {
+        console.log("you clicked on", theTask.description);
+        setClickCount(clickCount + 1);
+        props.howToHandleClick(theTask.id)
+    }
+
+
+
+    return (
+        <li className={className} onClick={handleClick}>
+            {theTask.description}
+        </li>
+    );
 }
 
-export default Tasks;
+export default function TaskList(props) {
+    let taskComponents = props.tasks.map((eachTask) => {
+        let singleTaskElem = (
+            <Task 
+                key={eachTask.id} 
+                task={eachTask} 
+                howToHandleClick={props.whatToDoWhenClicked} />
+        )
+        return singleTaskElem;
+    })
+
+    return(
+        <ol>
+            {taskComponents}
+        </ol>
+    );
+}

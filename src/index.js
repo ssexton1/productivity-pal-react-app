@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 // import firebase from 'firebase/app';
 // import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const SAMPLE_TASKS = [
+    {id:1, description:'Learn JSX', complete:true},
+    {id:2, description:'Learn about React State', complete:false},
+    {id:3, description:'Get some sleep', complete:false}
+];
 
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+ReactDOM.render(<App tasks={SAMPLE_TASKS}/>, document.getElementById('root'));
