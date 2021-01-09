@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TimerComponent from '../Timer/Timer'
+import TimerComponent from './Timer'
 
 export function Task(props) {
     const theTask = props.task
@@ -19,7 +19,7 @@ export function Task(props) {
 
     return (
         <li className={className} onClick={handleClick}>
-            {theTask.description} {<TimerComponent timerLength={300000}/>}
+            {theTask.description} {<TimerComponent timerLength={3000}/>}
         </li>
     );
 }
