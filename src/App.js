@@ -9,7 +9,6 @@ function App(props) {
   const [tasks, setTasks] = useState(props.tasks)
 
   const toggleTaskCompletion = (taskId) => {
-    console.log("toggling completeness of", taskId);
     let updatedTaskArray = tasks.map((theTask) => {
       let taskCopy = {...theTask}
       if(taskCopy.id === taskId) {
@@ -17,7 +16,6 @@ function App(props) {
       }
       return taskCopy;
     })
-    console.log("updated array", updatedTaskArray);
     setTasks(updatedTaskArray);
   }
 
@@ -38,7 +36,6 @@ function App(props) {
   }
 
   let incompleteArray = tasks.filter((task) => !task.complete);
-  console.log("Number of incomplete tasks", incompleteArray.length);
 
 
   return (

@@ -10,12 +10,10 @@ export function AddTaskForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("Submitting: ", inputtedValue);
 
         props.addTaskCallback(inputtedValue);
         setInputtedValue("");
     }
-    console.log("rendering with", inputtedValue);
 
     return(
         <form onSubmit={handleSubmit}>

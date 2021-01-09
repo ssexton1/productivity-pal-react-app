@@ -12,7 +12,6 @@ export function Task(props) {
     }
 
     const handleClick = (event) => {
-        console.log("you clicked on", theTask.description);
         setClickCount(clickCount + 1);
         props.howToHandleClick(theTask.id)
     }
