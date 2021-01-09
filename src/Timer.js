@@ -1,36 +1,50 @@
-import React from 'react'
-import Timer from 'react-compound-timer'
+import React, { useRef, useState, useEffect } from 'react'
 
 function TimerComponent(props) {
+    const [timerDays, setTimerDays] = useState('00');
+    const [timerHours, setTimerHours] = useState('00');
+    const [timerMinutes, setTimerMinutes] = useState('00');
+    const [timerSeconds, setTimerSeconds] = useState('00');
 
-    let timerLength = props.timerLength;
+    let interval = useRef();
+
+    const startTimer = () => {
+        const countdownDate = new Date('May 30, 2021 00:00:00').getTime();
+
+        interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((distance / 1000 / 60) % 60);
+            const seconds = Math.floor((distance / 1000) % 60);
+
+            if( distance < 0) {
+                clearInterval(interval.current);
+            } else {
+                setTimerDays(days);
+                setTimerHours(hours);
+                setTimerMinutes(minutes);
+                setTimerSeconds(seconds);
+            }
+        }, 1000);
+    };
+
+    useEffect(() => {
+        startTimer();
+        return() => {
+            clearInterval(interval.current); 
+        };
+    })
 
     return(
-    //     <Timer
-    //         initialTime={timerLength}
-    //         direction="backward"
-    //     >
-    //         {({ start, resume, pause, stop, reset, timerState }) => (
-    //             <React.Fragment>
-    //                 <div>
-    //                     <Timer.Days /> days &nbsp;
-    //                     <Timer.Hours /> hours &nbsp;
-    //                     <Timer.Minutes /> minutes &nbsp;
-    //                     <Timer.Seconds /> seconds
-    //                 </div>
-    //                 <div>{timerState}</div>
-    //                 <br />
-    //                 <div>
-    //                     <button className="btn btn-secondary ml-1" onClick={start}>Start</button>
-    //                     <button className="btn btn-secondary ml-1" onClick={pause}>Pause</button>
-    //                     <button className="btn btn-secondary ml-1" onClick={resume}>Resume</button>
-    //                     <button className="btn btn-secondary ml-1" onClick={stop}>Stop</button>
-    //                     <button className="btn btn-secondary ml-1" onClick={reset}>Reset</button>
-    //                 </div>
-    //             </React.Fragment>
-    //         )}
-    //     </Timer>
-    // );
+        <div>
+            <p>{timerDays} : {timerHours} : {timerMinutes} : {timerSeconds}</p>
+            {/* <button onClick={onStart}></button>
+            <button onClick={onStop}></button> */}
+        </div>
+    );
 }
 
 export default TimerComponent;
