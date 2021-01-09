@@ -13,36 +13,27 @@ function TimerComponent(props) {
     const startTimer = () => {
         if (!isPaused) {
             interval.current = setInterval(() => {
-
-                const days = Math.floor(countdownLength / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((countdownLength / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((countdownLength / 1000 / 60) % 60);
-                const seconds = Math.floor((countdownLength / 1000) % 60);
-    
-                if(countdownLength < 0) {
-                    clearInterval(interval.current);
-                } else {
-                    setTimerDays(days);
-                    setTimerHours(hours);
-                    setTimerMinutes(minutes);
-                    setTimerSeconds(seconds);
-                }
+                updateText(countdownLength);
                 setCountdownLength(timeLeft => timeLeft - 1000);
-
             }, 1000);   
         }
     };
 
-    // useEffect(() => {
-    //     if (isPaused) {
-    //         clearInterval(interval.current);
-    //     } else {
-    //         startTimer();
-    //         return () => {
-    //             clearInterval(interval.current);
-    //         };
-    //     }
-    // });
+    function updateText(timerLength) {
+        const days = Math.floor(timerLength / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timerLength / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timerLength / 1000 / 60) % 60);
+        const seconds = Math.floor((timerLength / 1000) % 60);
+
+        if(timerLength < 0) {
+            clearInterval(interval.current);
+        } else {
+            setTimerDays(days);
+            setTimerHours(hours);
+            setTimerMinutes(minutes);
+            setTimerSeconds(seconds);
+        }
+    }
 
     useEffect(() => {
         startTimer();
@@ -61,7 +52,8 @@ function TimerComponent(props) {
     }
 
     const onReset = (event) => {
-        setCountdownLength(30000);
+        setCountdownLength(29000);
+        updateText(30000);
     }
 
     return(
