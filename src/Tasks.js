@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TimerComponent from './Timer'
+import { AddTaskForm } from './TaskForms'
 
 export function Task(props) {
     const theTask = props.task
@@ -35,8 +36,16 @@ export default function TaskList(props) {
     })
 
     return(
-        <ol>
-            {taskComponents}
-        </ol>
+        <div>
+            <p className="lead">
+                Num things I have to do: <strong>{props.length}</strong>
+            </p>
+            <ol>
+                {taskComponents}
+            </ol>
+
+            <AddTaskForm addTaskCallback={props.addTaskCallback}/>
+
+        </div>
     );
 }

@@ -1,8 +1,7 @@
 import TaskList from './Tasks'
-import { AddTaskForm } from './TaskForms'
 import { useState } from 'react'
 import React from 'react'
-// import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 
 function App(props) {
 
@@ -40,11 +39,18 @@ function App(props) {
 
   return (
     <div className="container">
-      <p className="lead">
-        Num things I have to do: <strong>{incompleteArray.length}</strong>
-      </p>
-      <TaskList tasks={tasks} whatToDoWhenClicked={toggleTaskCompletion}/>
-      <AddTaskForm addTaskCallback={addTask}/>
+      <header> 
+        <h1 className="pageTitle">Productivity Pal</h1>
+      </header>
+
+      <TaskList tasks={tasks} length={incompleteArray.length} addTaskCallback={addTask} whatToDoWhenClicked={toggleTaskCompletion}/>
+
+      <footer>
+        <address>
+          Contact us at <a href="Email@Gmail.com">Email@Gmail.com</a>, or at <a href="tel:866-588-0569">Telephone Number</a>.
+        </address>
+        <p>&copy; 2020</p>
+      </footer>
     </div>
   );
 
