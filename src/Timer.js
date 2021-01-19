@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
+import TimerSetPage from './TimerSetPage'
 
 function TimerComponent(props) {
     const [timerDays, setTimerDays] = useState('00');
@@ -57,12 +58,12 @@ function TimerComponent(props) {
     }
 
     return(
-        <div>
-            <p>{timerDays} : {timerHours} : {timerMinutes} : {timerSeconds}</p>
-            <button onClick={onStart}>Start</button>
-            <button onClick={onStop}>Stop</button>
-            <button onClick={onReset}>Reset</button>
-        </div>
+        <TimerSetPage 
+            clock={<p>{timerDays} : {timerHours} : {timerMinutes} : {timerSeconds}</p>} 
+            start={<button onClick={onStart}>Start</button>} 
+            stop={<button onClick={onStop}>Stop</button>} 
+            reset={<button onClick={onReset}>Reset</button>}
+        />
     );
 }
 

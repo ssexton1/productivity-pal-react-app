@@ -1,7 +1,7 @@
 import TaskList from './Tasks'
 import { useState } from 'react'
 import React from 'react'
-import { Route, Switch, Redirect} from 'react-router-dom';
+//import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App(props) {
 
@@ -43,7 +43,14 @@ function App(props) {
         <h1 className="pageTitle">Productivity Pal</h1>
       </header>
 
-      <TaskList tasks={tasks} length={incompleteArray.length} addTaskCallback={addTask} whatToDoWhenClicked={toggleTaskCompletion}/>
+
+      {/* <Switch>
+        <Route exact path="/"> */}
+          <TaskList tasks={tasks} length={incompleteArray.length} addTaskCallback={addTask} whatToDoWhenClicked={toggleTaskCompletion}/>
+        {/* </Route>
+        <Route exact path="/editTimer" component={TimerSetPage} />
+        <Redirect to="/" />
+      </Switch> */}
 
       <footer>
         <address>
@@ -68,15 +75,15 @@ export default App;
 
 
 //       <Tasks />
-//       <Switch>
-//         <Route exact path="/" render={Map} />
-//         <Route exact path="/about" component={AboutPage} />
-//         <Route path="/report" component={Form} />
-//         <Route path="/map/:raceName"></Route>
-//         <Route exact path="/table" component={Table} />
-//         <Route exact path="/table/:personName" component={PersonProfile} />
-//         <Redirect to="/" />
-//       </Switch>
+      // <Switch>
+      //   <Route exact path="/" render={Map} />
+      //   <Route exact path="/about" component={AboutPage} />
+      //   <Route path="/report" component={Form} />
+      //   <Route path="/map/:raceName"></Route>
+      //   <Route exact path="/table" component={Table} />
+      //   <Route exact path="/table/:personName" component={PersonProfile} />
+      //   <Redirect to="/" />
+      // </Switch>
 
 //       <footer>
 //         <address>
