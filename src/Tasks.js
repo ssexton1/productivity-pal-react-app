@@ -19,7 +19,7 @@ export function Task(props) {
 
     return (
         <li className={className} onClick={handleClick}>
-            {theTask.description} {<TimerComponent timerLength={3000}/>}
+            {theTask.description} {<TimerComponent timerLength={3000} editTimerCallback={props.editTimerCallback} timerEditDivCallBack={props.timerEditDivCallBack}/>}
         </li>
     );
 }
@@ -30,7 +30,10 @@ export default function TaskList(props) {
             <Task 
                 key={eachTask.id} 
                 task={eachTask} 
-                howToHandleClick={props.whatToDoWhenClicked} />
+                howToHandleClick={props.whatToDoWhenClicked}
+                editTimerCallback={props.editTimerCallback}
+                timerEditDivCallBack={props.timerEditDivCallBack}
+            />
         )
         return singleTaskElem;
     })

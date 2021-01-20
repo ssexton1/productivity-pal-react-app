@@ -16,3 +16,7 @@
 .font-strike {
     text-decoration: line-through;
 }
+
+.no-display {
+    display: none;
+}

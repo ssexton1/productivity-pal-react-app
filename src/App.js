@@ -1,11 +1,13 @@
-import TaskList from './Tasks'
+import TaskTimerDecider from './TaskTimerDecider'
 import { useState } from 'react'
 import React from 'react'
 //import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App(props) {
 
-  const [tasks, setTasks] = useState(props.tasks)
+  const [tasks, setTasks] = useState(props.tasks);
+  const [editTimer, setEditTimer] = useState(false);
+  const [timerEditDiv, setTimerEditDiv] = useState();
 
   const toggleTaskCompletion = (taskId) => {
     let updatedTaskArray = tasks.map((theTask) => {
@@ -34,6 +36,14 @@ function App(props) {
     setTasks(updatedTaskArray);
   }
 
+  const timerSetPage = (timerItem) => {
+    setEditTimer(timerItem);
+  }
+
+  const timerEditDivCallBack = (timerDiv) => {
+    setTimerEditDiv(timerDiv);
+  }
+
   let incompleteArray = tasks.filter((task) => !task.complete);
 
 
@@ -43,10 +53,20 @@ function App(props) {
         <h1 className="pageTitle">Productivity Pal</h1>
       </header>
 
-
+      
+      <TaskTimerDecider 
+        tasks={tasks}
+        editTimer={editTimer}
+        timerEditDiv={timerEditDiv}
+        length={incompleteArray.length}
+        editTimerCallback={timerSetPage}
+        timerEditDivCallBack={timerEditDivCallBack}
+        addTaskCallback={addTask}
+        whatToDoWhenClicked={toggleTaskCompletion}
+      />
       {/* <Switch>
         <Route exact path="/"> */}
-          <TaskList tasks={tasks} length={incompleteArray.length} addTaskCallback={addTask} whatToDoWhenClicked={toggleTaskCompletion}/>
+
         {/* </Route>
         <Route exact path="/editTimer" component={TimerSetPage} />
         <Redirect to="/" />
