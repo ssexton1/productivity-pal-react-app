@@ -14,9 +14,11 @@
 } */
 
 .font-strike {
-    text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 .no-display {
-    display: none;
+	display: none;
 }
+
+
