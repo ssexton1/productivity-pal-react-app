@@ -1,21 +1,31 @@
-import ReactDOM from "react-dom";
 import React, { useRef, useState } from 'react'
-//import Modal from './Modal'
+import Form from './Form'
 import "./Modal.css";
 
 import useOutsideClick from "./useOutsideClick";
 
-export function OtherModal() {
-	const [show, setSate] = useState(false);
+export function OtherModal({ onSubmit }) {
+	const [show, setState] = useState(false);
 	const ref = useRef();
 
 	useOutsideClick(ref, () => {
-		if (show) setSate(false);
+		if (show) closeModal();
 	});
+
+	const closeModal = () => {
+		setState(false);
+	};
+
+	const onKeyDown = (event) => {
+		if (event.keyCode === 27) {
+			closeModal();
+		}
+	};
+
 
 	return (
 		<div className="App">
-			<button onClick={() => setSate(!show)}>Menu</button>
+			<button onClick={() => setState(!show)}>Menu</button>
 			{show && (
 				<aside
 					tag="aside"
@@ -23,13 +33,14 @@ export function OtherModal() {
 					tabIndex="-1"
 					aria-modal="true"
 					className="modal-cover"
+					onKeyDown={onKeyDown}
 				>
 					<div className="modal-area" ref={ref}>
 						<button
 							aria-label="Close Modal"
 							aria-labelledby="close-modal"
 							className="_modal-close"
-							onClick={() => setSate(false)}
+							onClick={() => setState(false)}
 						>
 							<span id="close-modal" className="_hide-visual">
 								Close
@@ -39,10 +50,7 @@ export function OtherModal() {
 							</svg>
 						</button>
 						<div className="modal-body">
-							<h4>
-								This is a menu <small>(Click outside to close)</small>
-							</h4>
-							<input type="text" />
+							<Form onSubmit={onSubmit}/>
 						</div>
 					</div>
 				</aside>

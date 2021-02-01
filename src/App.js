@@ -46,7 +46,7 @@ function App(props) {
 		<div className="container">
 			<Filler />
 			{/* <Container triggerText={triggerText} onSubmit={onSubmit} /> */}
-			<OtherModal/>
+			<OtherModal onSubmit={onSubmit}/>
 			<Filler />
 			<Filler />
 			<Filler />
