@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import Container from "./Modal Files/Container";
 import Filler from "./Modal Files/Filler";
-import OtherModal from './Modal Files/otherModal'
+import OtherModal from './Modal Files/OtherModal'
 //import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App(props) {
