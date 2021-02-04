@@ -31,8 +31,6 @@ export default function TaskList(props) {
 	return (
 		<div>
 			<ol>{taskComponents}</ol>
-
-			<AddTaskForm addTaskCallback={props.addTaskCallback} />
 		</div>
 	);
 }

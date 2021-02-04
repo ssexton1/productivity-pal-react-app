@@ -1,9 +1,7 @@
 import TaskTimerDecider from "./Task Files/TaskTimerDecider";
 import { useState } from "react";
 import React from "react";
-import Container from "./Modal Files/Container";
-import Filler from "./Modal Files/Filler";
-import OtherModal from './Modal Files/OtherModal'
+import Modal from './Modal Files/Modal'
 //import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App(props) {
@@ -44,20 +42,20 @@ function App(props) {
 
 	return (
 		<div className="container">
-			<Filler />
-			{/* <Container triggerText={triggerText} onSubmit={onSubmit} /> */}
-			<OtherModal onSubmit={onSubmit}/>
-			<Filler />
-			<Filler />
-			<Filler />
-			<Filler />
-			
 
-			{/* <header>
-				<h1 className="pageTitle">Productivity Pal</h1>
+			<div class="navbar">
+				<div className="add-button">
+					<Modal onSubmit={onSubmit} addTaskCallback={addTask}/>
+				</div>
+			</div>
+
+			<header>
+					<h1 className="pageTitle">Productivity Pal</h1>
 			</header>
 
-			<TaskTimerDecider tasks={tasks} addTaskCallback={addTask} />
+			<div className="main">
+				<TaskTimerDecider tasks={tasks} addTaskCallback={addTask} />
+			</div>
 
 			<footer>
 				<address>
@@ -65,7 +63,7 @@ function App(props) {
 					<a href="tel:866-588-0569">Telephone Number</a>.
 				</address>
 				<p>&copy; 2020</p>
-			</footer> */}
+			</footer>
 		</div>
 	);
 }

@@ -6,7 +6,7 @@ function TimerComponent(props) {
 	const [timerMinutes, setTimerMinutes] = useState("00");
 	const [timerSeconds, setTimerSeconds] = useState("00");
 	const [isPaused, setIsPaused] = useState(true);
-	const [countdownLength, setCountdownLength] = useState(30000);
+	const [countdownLength, setCountdownLength] = useState(props.timerLength);
 
 	let interval = useRef();
 
@@ -51,8 +51,8 @@ function TimerComponent(props) {
 	};
 
 	const onReset = (event) => {
-		setCountdownLength(29000);
-		updateText(30000);
+		setCountdownLength(props.timerLength - 1000);
+		updateText(props.timerLength);
 	};
 
 	// const clockPress = (event) => {
@@ -64,9 +64,9 @@ function TimerComponent(props) {
 		<p>
 			{timerDays} : {timerHours} : {timerMinutes} : {timerSeconds}
 			<p></p>
-			<button onClick={onStart}>Start</button>
-			<button onClick={onStop}>Stop</button>
-			<button onClick={onReset}>Reset</button>
+			<button className="btn btn-secondary" onClick={onStart}>Start</button>
+			<button className="btn btn-secondary ml-2 mr-2" onClick={onStop}>Stop</button>
+			<button className="btn btn-secondary" onClick={onReset}>Reset</button>
 		</p>
 	);
 }

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import App from "./App";
 // import firebase from 'firebase/app';
-import { BrowserRouter } from "react-router-dom";
+//import { BrowserRouter } from "react-router-dom";
 
 const SAMPLE_TASKS = [
 	{ id: 1, description: "Learn JSX", duration: 30000 },
@@ -13,8 +13,6 @@ const SAMPLE_TASKS = [
 ];
 
 ReactDOM.render(
-	<BrowserRouter>
-		<App tasks={SAMPLE_TASKS} />
-	</BrowserRouter>,
+		<App tasks={SAMPLE_TASKS} />,
 	document.getElementById("root")
 );
