@@ -16,9 +16,8 @@ export function AddTaskForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.addTaskCallback(inputtedTask, length);
+		props.addTaskCallback(inputtedTask, length, true);
 		props.closeModal();
-		//setInputtedTask("");
 	};
 
 	return (

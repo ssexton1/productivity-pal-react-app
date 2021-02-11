@@ -9,7 +9,7 @@ function App(props) {
 	// const [showEdit, setShowEdit] = useState(false);
 	// const [timerLength, setTimerLength] = useState(0);
 
-	const addTask = (taskDescription, timerLength) => {
+	const addTask = (taskDescription, timerLength, add) => {
 		let newTask = {
 			id: tasks.length + 1,
 			description: taskDescription,
@@ -20,10 +20,20 @@ function App(props) {
 			let taskCopy = { ...theTask };
 			return taskCopy;
 		});
+
 		updatedTaskArray.push(newTask);
 
 		setTasks(updatedTaskArray);
 	};
+
+	const deleteTask = (task) => {
+
+		let updatedTaskArray = tasks.filter(function(item) {
+			return item !== task;
+		});
+
+		setTasks(updatedTaskArray);
+	}
 
 	// const editTimerCallback = (timerItem) => {
 	// 	setShowEdit(timerItem);
@@ -54,7 +64,7 @@ function App(props) {
 			</header>
 
 			<div className="main">
-				<TaskTimerDecider tasks={tasks} addTaskCallback={addTask} />
+				<TaskTimerDecider tasks={tasks} addTaskCallback={addTask} deleteTask={deleteTask}/>
 			</div>
 
 			<footer>

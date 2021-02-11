@@ -5,9 +5,14 @@ import { AddTaskForm } from "./TaskForms";
 export function Task(props) {
 	const theTask = props.task;
 
+	const deleteTask = (event) => {
+		props.deleteTask(theTask);
+	};
+
 	return (
 		<li>
 			{theTask.description}{" "}
+			<button className="btn btn-danger ml-5" onClick={deleteTask}>X</button>
 			{
 				<TimerComponent
 					timerLength={theTask.duration}
@@ -23,6 +28,7 @@ export default function TaskList(props) {
 			<Task
 				key={eachTask.id}
 				task={eachTask}
+				deleteTask={props.deleteTask}
 			/>
 		);
 		return singleTaskElem;

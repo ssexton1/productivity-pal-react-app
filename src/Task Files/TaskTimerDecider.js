@@ -29,6 +29,7 @@ function TaskTimerDecider(props) {
 				<TaskList
 					tasks={props.tasks}
 					addTaskCallback={props.addTaskCallback}
+					deleteTask={props.deleteTask}
 				/>
 		// 	</div>
 		// </div>
