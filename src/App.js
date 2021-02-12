@@ -53,7 +53,7 @@ function App(props) {
 	return (
 		<div className="container">
 
-			<div class="navbar">
+			<div className="navbar">
 				<div className="add-button">
 					<Modal onSubmit={onSubmit} addTaskCallback={addTask}/>
 				</div>

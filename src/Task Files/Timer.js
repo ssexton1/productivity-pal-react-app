@@ -13,11 +13,14 @@ function TimerComponent(props) {
 	const startTimer = () => {
 		if (!isPaused) {
 			interval.current = setInterval(() => {
-				updateText(countdownLength);
 				setCountdownLength((timeLeft) => timeLeft - 1000);
 			}, 1000);
 		}
 	};
+
+	function makeMeTwoDigits(n){
+    	return (n < 10 ? "0" : "") + n;
+	}
 
 	function updateText(timerLength) {
 		const days = Math.floor(timerLength / (1000 * 60 * 60 * 24));
@@ -28,14 +31,19 @@ function TimerComponent(props) {
 		if (timerLength < 0) {
 			clearInterval(interval.current);
 		} else {
-			setTimerDays(days);
-			setTimerHours(hours);
-			setTimerMinutes(minutes);
-			setTimerSeconds(seconds);
+			setTimerDays(makeMeTwoDigits(days));
+			setTimerHours(makeMeTwoDigits(hours));
+			setTimerMinutes(makeMeTwoDigits(minutes));
+			setTimerSeconds(makeMeTwoDigits(seconds));
 		}
 	}
 
+	// useEffect(() => {
+	// 	startTimer();
+	// });
+	
 	useEffect(() => {
+		updateText(countdownLength);
 		startTimer();
 		return () => {
 			clearInterval(interval.current);
@@ -61,7 +69,7 @@ function TimerComponent(props) {
 	// };
 
 	return (
-		<p>
+		<p on>
 			{timerDays} : {timerHours} : {timerMinutes} : {timerSeconds}
 			<p></p>
 			<button className="btn btn-secondary" onClick={onStart}>Start</button>

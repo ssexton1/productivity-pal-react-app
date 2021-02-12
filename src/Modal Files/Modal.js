@@ -1,11 +1,10 @@
 import React, { useRef, useState } from 'react'
-import Form from './Form'
-import AddTaskForm from '../Task Files/TaskForms'
 import "./Modal.css";
+import AddTaskForm from '../Task Files/TaskForms'
 
 import useOutsideClick from "./useOutsideClick";
 
-export function Modal({ onSubmit, addTaskCallback }) {
+export function Modal({ addTaskCallback }) {
 	const [show, setState] = useState(false);
 	const ref = useRef();
 
