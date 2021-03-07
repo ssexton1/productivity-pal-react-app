@@ -16,7 +16,7 @@ export function AddTaskForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.addTaskCallback(inputtedTask, length, true);
+		props.addTaskCallback(inputtedTask, length * 1000, true);
 		props.closeModal();
 	};
 
@@ -24,13 +24,13 @@ export function AddTaskForm(props) {
 		<form onSubmit={handleSubmit}>
 			<input
 				className="form-control mb-3"
-				placeholder="What else do you have to do?"
+				placeholder="Please Enter a Task Here"
 				value={inputtedTask}
 				onChange={handleTaskChange}
 			/>
 			<input
 				className="form-control mb-3"
-				placeholder="How Long a Timer would you like?"
+				placeholder="How Long a Timer would you like? (in seconds)"
 				value={length}
 				onChange={handleTimerChange}
 			/>

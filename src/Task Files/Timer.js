@@ -37,10 +37,6 @@ function TimerComponent(props) {
 			setTimerSeconds(makeMeTwoDigits(seconds));
 		}
 	}
-
-	// useEffect(() => {
-	// 	startTimer();
-	// });
 	
 	useEffect(() => {
 		updateText(countdownLength);
@@ -59,14 +55,9 @@ function TimerComponent(props) {
 	};
 
 	const onReset = (event) => {
-		setCountdownLength(props.timerLength - 1000);
+		setCountdownLength(props.timerLength);
 		updateText(props.timerLength);
 	};
-
-	// const clockPress = (event) => {
-	// 	props.editTimerCallback(true);
-	// 	props.editTimerLength(countdownLength);
-	// };
 
 	return (
 		<p on>

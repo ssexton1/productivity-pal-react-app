@@ -1,6 +1,5 @@
 import React from "react";
 import TimerComponent from "./Timer";
-import { AddTaskForm } from "./TaskForms";
 
 export function Task(props) {
 	const theTask = props.task;
@@ -22,7 +21,7 @@ export function Task(props) {
 	);
 }
 
-export default function TaskList(props) {
+export function TaskList(props) {
 	let taskComponents = props.tasks.map((eachTask) => {
 		let singleTaskElem = (
 			<Task
@@ -40,3 +39,5 @@ export default function TaskList(props) {
 		</div>
 	);
 }
+
+export default TaskList;

@@ -4,15 +4,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import App from "./App";
 // import firebase from 'firebase/app';
-//import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 const SAMPLE_TASKS = [
-	{ id: 1, description: "Learn JSX", duration: 30000 },
-	{ id: 2, description: "Learn about React State", duration: 30000 },
-	{ id: 3, description: "Get some sleep", duration: 30000 },
+	// { id: 1, description: "Learn JSX", duration: 30000 },
+	// { id: 2, description: "Learn about React State", duration: 30000 },
+	// { id: 3, description: "Get some sleep", duration: 30000 },
 ];
 
-ReactDOM.render(
-		<App tasks={SAMPLE_TASKS} />,
+ReactDOM.render(<BrowserRouter>
+		<App tasks={SAMPLE_TASKS} /></BrowserRouter>,
 	document.getElementById("root")
 );

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from "react";
 import "./Modal.css";
-import AddTaskForm from '../Task Files/TaskForms'
-
+import AddTaskForm from "../Task Files/TaskForms";
+//import { Route, Switch, Link } from "react-router-dom";
 import useOutsideClick from "./useOutsideClick";
 
 export function Modal({ addTaskCallback }) {
@@ -22,10 +22,11 @@ export function Modal({ addTaskCallback }) {
 		}
 	};
 
-
 	return (
 		<div>
-			<button  className="btn btn-secondary" onClick={() => setState(!show)}>Add</button>
+			<button className="btn btn-secondary" onClick={() => setState(!show)}>
+				Add
+			</button>
 			{show && (
 				<aside
 					tag="aside"
@@ -50,7 +51,10 @@ export function Modal({ addTaskCallback }) {
 							</svg>
 						</button>
 						<div className="modal-body">
-							<AddTaskForm addTaskCallback={addTaskCallback} closeModal={closeModal}/>
+									<AddTaskForm
+										addTaskCallback={addTaskCallback}
+										closeModal={closeModal}
+									/>
 						</div>
 					</div>
 				</aside>

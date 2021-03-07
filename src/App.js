@@ -1,13 +1,10 @@
-import TaskTimerDecider from "./Task Files/TaskTimerDecider";
+import TaskList from "./Task Files/Tasks";
 import { useState } from "react";
 import React from "react";
 import Modal from './Modal Files/Modal'
-//import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App(props) {
 	const [tasks, setTasks] = useState(props.tasks);
-	// const [showEdit, setShowEdit] = useState(false);
-	// const [timerLength, setTimerLength] = useState(0);
 
 	const addTask = (taskDescription, timerLength, add) => {
 		let newTask = {
@@ -35,15 +32,6 @@ function App(props) {
 		setTasks(updatedTaskArray);
 	}
 
-	// const editTimerCallback = (timerItem) => {
-	// 	setShowEdit(timerItem);
-	// };
-
-	// const editTimerLength = (length) => {
-	// 	setTimerLength(length);
-	// };
-
-	const triggerText = "Open Form";
 	const onSubmit = (event) => {
 		event.preventDefault(event);
 		console.log(event.target.name.value);
@@ -64,7 +52,7 @@ function App(props) {
 			</header>
 
 			<div className="main">
-				<TaskTimerDecider tasks={tasks} addTaskCallback={addTask} deleteTask={deleteTask}/>
+				<TaskList tasks={tasks} addTaskCallback={addTask} deleteTask={deleteTask}/>
 			</div>
 
 			<footer>
