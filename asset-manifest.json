@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/%7Bapp-name%7D/static/css/main.907befd4.chunk.css",
-    "main.js": "/%7Bapp-name%7D/static/js/main.af6b4081.chunk.js",
-    "main.js.map": "/%7Bapp-name%7D/static/js/main.af6b4081.chunk.js.map",
-    "runtime-main.js": "/%7Bapp-name%7D/static/js/runtime-main.229f9ca4.js",
-    "runtime-main.js.map": "/%7Bapp-name%7D/static/js/runtime-main.229f9ca4.js.map",
-    "static/css/2.95f25948.chunk.css": "/%7Bapp-name%7D/static/css/2.95f25948.chunk.css",
-    "static/js/2.308c99af.chunk.js": "/%7Bapp-name%7D/static/js/2.308c99af.chunk.js",
-    "static/js/2.308c99af.chunk.js.map": "/%7Bapp-name%7D/static/js/2.308c99af.chunk.js.map",
-    "index.html": "/%7Bapp-name%7D/index.html",
-    "static/css/2.95f25948.chunk.css.map": "/%7Bapp-name%7D/static/css/2.95f25948.chunk.css.map",
-    "static/css/main.907befd4.chunk.css.map": "/%7Bapp-name%7D/static/css/main.907befd4.chunk.css.map",
-    "static/js/2.308c99af.chunk.js.LICENSE.txt": "/%7Bapp-name%7D/static/js/2.308c99af.chunk.js.LICENSE.txt"
+    "main.css": "/productivity-pal-react-app/static/css/main.907befd4.chunk.css",
+    "main.js": "/productivity-pal-react-app/static/js/main.af6b4081.chunk.js",
+    "main.js.map": "/productivity-pal-react-app/static/js/main.af6b4081.chunk.js.map",
+    "runtime-main.js": "/productivity-pal-react-app/static/js/runtime-main.30e160b8.js",
+    "runtime-main.js.map": "/productivity-pal-react-app/static/js/runtime-main.30e160b8.js.map",
+    "static/css/2.95f25948.chunk.css": "/productivity-pal-react-app/static/css/2.95f25948.chunk.css",
+    "static/js/2.308c99af.chunk.js": "/productivity-pal-react-app/static/js/2.308c99af.chunk.js",
+    "static/js/2.308c99af.chunk.js.map": "/productivity-pal-react-app/static/js/2.308c99af.chunk.js.map",
+    "index.html": "/productivity-pal-react-app/index.html",
+    "static/css/2.95f25948.chunk.css.map": "/productivity-pal-react-app/static/css/2.95f25948.chunk.css.map",
+    "static/css/main.907befd4.chunk.css.map": "/productivity-pal-react-app/static/css/main.907befd4.chunk.css.map",
+    "static/js/2.308c99af.chunk.js.LICENSE.txt": "/productivity-pal-react-app/static/js/2.308c99af.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.229f9ca4.js",
+    "static/js/runtime-main.30e160b8.js",
     "static/css/2.95f25948.chunk.css",
     "static/js/2.308c99af.chunk.js",
     "static/css/main.907befd4.chunk.css",
